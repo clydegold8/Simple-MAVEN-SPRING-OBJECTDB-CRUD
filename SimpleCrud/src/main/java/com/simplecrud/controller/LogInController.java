@@ -82,6 +82,9 @@ public class LogInController {
                         + "<p class=\"help-block\"> <b>Log In Passed!</b></p>\n"
                         + " </div>");
 
+                // Prepare the result view (registeredMember.jsp):
+                return new ModelAndView("registeredMember.jsp");
+
             } catch (Exception e) {
                 System.out.println(e + " NO Entity");
 
@@ -91,12 +94,15 @@ public class LogInController {
                         + " </div>");
                 sFormStatus.setsInput("has-error");
 
+                // Prepare the result view (logInForm.jsp):
+                return new ModelAndView("logInForm.jsp", "status", sFormStatus);
+
             }
 
         }
-
         // Prepare the result view (logInForm.jsp):
         return new ModelAndView("logInForm.jsp", "status", sFormStatus);
+
     }
 
 }

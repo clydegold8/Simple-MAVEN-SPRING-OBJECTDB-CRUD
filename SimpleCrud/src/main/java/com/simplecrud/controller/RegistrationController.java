@@ -120,11 +120,15 @@ public class RegistrationController {
                         + "<p class=\"help-block\"> <b>Form Successfully Registered!</b></p>\n"
                         + " </div>");
 
-            } catch (EntityExistsException e) {
-                System.out.println(e + "User Already Exist");
+            } catch (Exception e) {
+                System.out.println(e.getMessage() + "User Already Exist");
+
+                sFormStatus.setsUsernameInput("has-error");
+                sFormStatus.setsPasswordInput("has-error");
+                sFormStatus.setsEmailInput("has-error");
 
                 sFormStatus.setsStatus("<div class=\"form-group has-error\">\n"
-                        + "<p class=\"help-block\"><b>User is Already Exist</b></p>\n"
+                        + "<p class=\"help-block\"><b>User is Already Exist, Please Log In</b></p>\n"
                         + "</div>");
             }
 

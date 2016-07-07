@@ -7,8 +7,10 @@ package com.simplecrud;
 
 import java.io.Serializable;
 import java.sql.Date;
+import javax.jdo.annotations.Unique;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -22,10 +24,12 @@ public class NewMember implements Serializable {
 
     // Persistent Fields:
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @Unique
     private String username;
     private String password;
+    @Unique
     private String email;
     private Date signingDate;
 
