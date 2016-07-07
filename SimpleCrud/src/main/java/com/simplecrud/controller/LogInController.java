@@ -77,25 +77,17 @@ public class LogInController {
                 user = loginDao.getSpecificUser(username, password);
                 System.out.println(user + "Resulted Query");
 
-                //log in success
-                sFormStatus.setsStatus("<div class=\"form-group has-success\">\n"
-                        + "<p class=\"help-block\"> <b>Log In Passed!</b></p>\n"
-                        + " </div>");
-
                 // Prepare the result view (registeredMember.jsp):
-                return new ModelAndView("registeredMember.jsp");
+                return new ModelAndView("registeredMember.jsp", "UserInfo", user);
 
             } catch (Exception e) {
-                System.out.println(e + " NO Entity");
+                System.out.println(e + "Non Entity");
 
                 //set error message in logging in
                 sFormStatus.setsStatus("<div class=\"form-group has-error\">\n"
                         + "<p class=\"help-block\"> <b>Incorrect Username and Password</b></p>\n"
                         + " </div>");
                 sFormStatus.setsInput("has-error");
-
-                // Prepare the result view (logInForm.jsp):
-                return new ModelAndView("logInForm.jsp", "status", sFormStatus);
 
             }
 
