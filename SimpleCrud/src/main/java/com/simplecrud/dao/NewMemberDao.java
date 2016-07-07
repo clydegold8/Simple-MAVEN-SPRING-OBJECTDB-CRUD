@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.simplecrud.dao;
 
 import com.simplecrud.NewMember;
@@ -18,14 +17,19 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Component
 public class NewMemberDao {
-    
+
     // Injected database connection:
-    @PersistenceContext private EntityManager em;
-    
-    // Stores a new member:
+    @PersistenceContext
+    private EntityManager em;
+
+    /**
+     * Stores a new member:
+     *
+     * @param newmember
+     */
     @Transactional
     public void persist(NewMember newmember) {
         em.persist(newmember);
     }
-    
+
 }

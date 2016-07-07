@@ -29,7 +29,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class RegistrationController {
 
-//    get registration page
+    /**
+     * get registration page
+     *
+     * @param request
+     * @return view
+     */
     @RequestMapping(value = "/registration")
     public ModelAndView registerUser(HttpServletRequest request) {
         System.out.println(request + "Load Registration Page");
@@ -47,6 +52,15 @@ public class RegistrationController {
     @Autowired
     private NewMemberDao newMemberDao;
 
+    /**
+     * Process Registration Data
+     *
+     * @param member
+     * @param result
+     * @param model
+     * @param request
+     * @return view
+     */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView validateUser(@Valid @ModelAttribute("newMemberForm") ValidateMember member, BindingResult result, Model model, HttpServletRequest request) {
 

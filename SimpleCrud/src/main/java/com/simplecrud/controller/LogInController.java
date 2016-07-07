@@ -25,7 +25,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LogInController {
 
-    //    get Log In page
+    /**
+     * get Log In page
+     *
+     * @param request
+     * @return view
+     */
     @RequestMapping(value = "/login")
     public ModelAndView getLogInPage(HttpServletRequest request) {
         System.out.println(request + "Load login Page 1");
@@ -37,6 +42,15 @@ public class LogInController {
     @Autowired
     private LogInDao loginDao;
 
+    /**
+     * Process Log In details
+     *
+     * @param login
+     * @param result
+     * @param model
+     * @param request
+     * @return view
+     */
     @RequestMapping(value = "/logging")
     public ModelAndView validateUser(@Valid @ModelAttribute("LogInForm") ValidateLogIn login, BindingResult result, Model model, HttpServletRequest request) {
         System.out.println(request + "Load  login Page 2");

@@ -23,9 +23,15 @@ public class LogInDao {
     private EntityManager em;
 
     // Check if the user exist in db:
+    /**
+     * Find the user if exist in the database:
+     *
+     * @param username
+     * @param password
+     * @return Object
+     */
     public Object getSpecificUser(String username, String password) {
 
-        // Find the user if exist in the database:
         Query q = em.createQuery("SELECT n FROM NewMember n WHERE n.username = :username AND n.password = :password");
         q.setParameter("username", username);
         q.setParameter("password", password);
