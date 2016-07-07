@@ -10,6 +10,7 @@ import com.simplecrud.NewMember;
 import com.simplecrud.dao.NewMemberDao;
 import com.simplecrud.validator.ValidateMember;
 import java.util.List;
+import javax.persistence.EntityExistsException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,13 +111,23 @@ public class RegistrationController {
             String password = request.getParameter("password");
             String email = request.getParameter("email");
 
-            newMemberDao.persist(new NewMember(username, password, email));
+            //try to save the form
+            try {
+                newMemberDao.persist(new NewMember(username, password, email));
+                System.out.println(result + "Form Results - Valid and Saved");
 
-            System.out.println(result + "Form Results - Valid and Saved");
+                sFormStatus.setsStatus("<div class=\"form-group has-success\">\n"
+                        + "<p class=\"help-block\"> <b>Form Successfully Registered!</b></p>\n"
+                        + " </div>");
 
-            sFormStatus.setsStatus("<div class=\"form-group has-success\">\n"
-                    + "<p class=\"help-block\"> <b>Form Successfully Registered!</b></p>\n"
-                    + " </div>");
+            } catch (EntityExistsException e) {
+                System.out.println(e + "User Already Exist");
+
+                sFormStatus.setsStatus("<div class=\"form-group has-error\">\n"
+                        + "<p class=\"help-block\"><b>User is Already Exist</b></p>\n"
+                        + "</div>");
+            }
+
         }
 
         return new ModelAndView("registrationForm.jsp", "status", sFormStatus);
