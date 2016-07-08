@@ -8,7 +8,7 @@ package com.simplecrud.dao;
 import com.simplecrud.NewMember;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
 
 /**
@@ -30,12 +30,12 @@ public class LogInDao {
      * @param password
      * @return Object
      */
-    public Object getSpecificUser(String username, String password) {
+    public Object getSpecificUsername(String username, String password) {
 
-        Query q = em.createQuery("SELECT n FROM NewMember n WHERE n.username = :username AND n.password = :password");
+        TypedQuery<NewMember> q = em.createQuery("SELECT n.username FROM NewMember n WHERE n.username = :username AND n.password = :password", NewMember.class);
         q.setParameter("username", username);
         q.setParameter("password", password);
-        NewMember user = (NewMember) q.getSingleResult();
-        return user;
+        return q.getSingleResult();
     }
+
 }

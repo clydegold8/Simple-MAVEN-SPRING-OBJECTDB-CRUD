@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -41,7 +42,9 @@
                                 </thead>
                                 <tbody>
                                     <tr class="text-center">
-                                        ${UserInfo}
+                                        <td><c:out value="${UserInfo.getUsername()}"/></td> 
+                                        <td><c:out value="${UserInfo.getEmail()}"/></td>
+                                        <td><c:out value="${UserInfo.getDate()}"/></td>
                                         <td>
                                             <a href="#" class="btn btn-info">Edit</a>
                                             <a href="#" class="btn btn-danger">Delete</a>

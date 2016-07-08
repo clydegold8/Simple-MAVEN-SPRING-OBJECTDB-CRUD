@@ -6,7 +6,9 @@
 package com.simplecrud.controller;
 
 import com.simplecrud.FormStatus;
+import com.simplecrud.UserInfo;
 import com.simplecrud.dao.LogInDao;
+import com.simplecrud.dao.UserInfoDao;
 import com.simplecrud.validator.ValidateLogIn;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -35,12 +37,14 @@ public class LogInController {
     public ModelAndView getLogInPage(HttpServletRequest request) {
         System.out.println(request + "Load login Page 1");
 
-        // Prepare the result view (logInForm.jsp):
+        // Prepare the oQueryresult view (logInForm.jsp):
         return new ModelAndView("logInForm.jsp");
     }
 
     @Autowired
     private LogInDao loginDao;
+    @Autowired
+    private UserInfoDao userDao;
 
     /**
      * Process Log In details
@@ -70,14 +74,30 @@ public class LogInController {
 
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            Object user;
+            Object oUser_name, oUser_email, oUser_date;
 
             try {
                 //get user in the db or check if exist
-                user = loginDao.getSpecificUser(username, password);
-                System.out.println(user + "Resulted Query");
+                oUser_name = loginDao.getSpecificUsername(username, password);
+                //oUser_name Object convert to string
+                String sUsername = oUser_name.toString();
 
-                // Prepare the result view (registeredMember.jsp):
+                oUser_email = userDao.getUserEmail(sUsername);
+                oUser_date = userDao.getUserSigningDate(sUsername);
+
+                //oUser_email & oUser_date objects convert to string
+                String sUser_email = oUser_email.toString();
+                String sUser_date = oUser_date.toString();
+
+                //Set User Information
+                UserInfo user = new UserInfo();
+                user.setUsername(sUsername);
+                user.setEmail(sUser_email);
+                user.setDate(sUser_date);
+
+                System.out.println(oUser_email + "Resulted Query");
+
+                // Prepare the oQueryresult view (registeredMember.jsp):
                 return new ModelAndView("registeredMember.jsp", "UserInfo", user);
 
             } catch (Exception e) {
@@ -92,7 +112,7 @@ public class LogInController {
             }
 
         }
-        // Prepare the result view (logInForm.jsp):
+        // Prepare the oQueryresult view (logInForm.jsp):
         return new ModelAndView("logInForm.jsp", "status", sFormStatus);
 
     }

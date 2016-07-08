@@ -18,7 +18,7 @@ public class ValidateMember {
     private String username;
     @Size(min = 5, max = 20, message = " Password should have 5 to 20 characters")
     private String password;
-    @NotEmpty(message="Email Invalid")
+    @NotEmpty(message = "Email Invalid")
     private String email;
 
     /**
@@ -61,11 +61,6 @@ public class ValidateMember {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Username" + username + " " + "Password: " + password + " " + "Email " + email;
     }
 
 }
