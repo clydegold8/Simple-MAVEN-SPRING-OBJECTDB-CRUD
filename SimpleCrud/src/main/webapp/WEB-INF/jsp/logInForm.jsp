@@ -24,26 +24,34 @@
                 <div style="padding: 10px;" class="col-md-12"></div>
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <h1 class="text-center">Log In</h1>
-                    <!-- Form -->
-                    <form method="POST" action="logging.html" commandName="LogInForm" modelattribute="login">
-                        <!-- Username Input --> 
-                        <div class="form-group ${status.getsInput()}">
-                            <label for="exampleInputUsername">Username</label>
-                            <input required type="text" class="form-control" name="username" id="exampleInputUsername" placeholder="Username">
+                    <h1 class="text-center">Log In Here</h1>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Log In Form</h3>
                         </div>
-                        <!-- Password Input --> 
-                        <div class="form-group ${status.getsInput()}">
-                            <label for="exampleInputPassword">Password</label>
-                            <input required type="password" class="form-control" name="password" id="exampleInputPassword" placeholder="Password">
+                        <div class="panel-body">
+                            <!-- Form -->
+                            <form method="POST" action="logging.html" commandName="LogInForm" modelattribute="login">
+                                <!-- Username Input --> 
+                                <div class="form-group ${status.getsInput()}">
+                                    <label for="exampleInputUsername">Username</label>
+                                    <input required type="text" class="form-control" name="username" id="exampleInputUsername" placeholder="Username">
+                                </div>
+                                <!-- Password Input --> 
+                                <div class="form-group ${status.getsInput()}">
+                                    <label for="exampleInputPassword">Password</label>
+                                    <input required type="password" class="form-control" name="password" id="exampleInputPassword" placeholder="Password">
+                                </div>
+
+                                <button type="submit" class="btn btn-info">Log In</button>
+                                <a class="btn btn-info" href="registration.html"> Register</a>
+                                <br />
+                                <!-- Display Status Text --> 
+                                ${status.getsStatus()}
+                            </form>
                         </div>
-                        
-                        <button type="submit" class="btn btn-info">Log In</button>
-                        <a class="btn btn-info" href="registration.html"> Register</a>
-                        <br />
-                        <!-- Display Status Text --> 
-                        ${status.getsStatus()}
-                    </form>
+                    </div>
+
                 </div>
                 <div class="col-md-3"></div>
             </div>

@@ -54,7 +54,9 @@ public class NewMember implements Serializable {
     // String Representation:
     @Override
     public String toString() {
-        return "User Id: " + id + " Username: " + username + " Email: " + email + "  (signed on " + signingDate + ")";
+        return "<td>" +username + "</td>\n"
+                + "<td>" +email + "</td>\n"
+                + "<td>" +signingDate+ "</td>";
     }
 
 }
