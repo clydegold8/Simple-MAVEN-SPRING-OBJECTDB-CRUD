@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form"
            prefix="form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.simplecrud.*"%>
 <!DOCTYPE html>
 <html>
@@ -33,12 +34,12 @@
                             <!-- Form -->
                             <form method="POST" action="logging.html" commandName="LogInForm" modelattribute="login">
                                 <!-- Username Input --> 
-                                <div class="form-group ${status.getsInput()}">
+                                <div class="form-group <c:out value='${status.getsInput()}'/>">
                                     <label for="exampleInputUsername">Username</label>
                                     <input required type="text" class="form-control" name="username" id="exampleInputUsername" placeholder="Username">
                                 </div>
                                 <!-- Password Input --> 
-                                <div class="form-group ${status.getsInput()}">
+                                <div class="form-group <c:out value='${status.getsInput()}'/>">
                                     <label for="exampleInputPassword">Password</label>
                                     <input required type="password" class="form-control" name="password" id="exampleInputPassword" placeholder="Password">
                                 </div>
@@ -46,8 +47,10 @@
                                 <button type="submit" class="btn btn-info">Log In</button>
                                 <a class="btn btn-info" href="registration.html"> Register</a>
                                 <br />
-                                <!-- Display Status Text --> 
-                                ${status.getsStatus()}
+                                <!-- Display Status Text -->
+                                <div class="form-group has-error"> 
+                                    <p class="help-block"> <b> <c:out value='${status.getsStatus()}'/></b></p> 
+                                </div>
                             </form>
                         </div>
                     </div>

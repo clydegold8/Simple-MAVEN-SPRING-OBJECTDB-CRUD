@@ -66,9 +66,7 @@ public class LogInController {
         if (result.hasErrors()) {
 
             //set error message in logging in
-            sFormStatus.setsStatus("<div class=\"form-group has-error\">\n"
-                    + "<p class=\"help-block\"> <b>Incorrect Username and Password</b></p>\n"
-                    + " </div>");
+            sFormStatus.setsStatus("Incorrect Username and Password");
             sFormStatus.setsInput("has-error");
         } else {
 
@@ -108,11 +106,8 @@ public class LogInController {
                 System.out.println(e + "Non Entity");
 
                 //set error message in logging in
-                sFormStatus.setsStatus("<div class=\"form-group has-error\">\n"
-                        + "<p class=\"help-block\"> <b>Incorrect Username and Password</b></p>\n"
-                        + " </div>");
+                sFormStatus.setsStatus("Incorrect Username and Password");
                 sFormStatus.setsInput("has-error");
-
             }
 
         }

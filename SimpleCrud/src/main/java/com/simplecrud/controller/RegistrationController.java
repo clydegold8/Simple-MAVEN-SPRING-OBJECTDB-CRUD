@@ -41,9 +41,8 @@ public class RegistrationController {
 
         FormStatus sFormStatus = new FormStatus();
 
-        sFormStatus.setsStatus("<div class=\"form-group has-warning\">\n"
-                + "<p class=\"help-block\"> <b>Please Fill out the form for New Registraion</b></p>\n"
-                + " </div>");
+        sFormStatus.setsStatus("Please Fill out the form for New Registraion");
+        sFormStatus.setsInput("has-warning");
 
         // Prepare the result view (registrationForm.jsp):
         return new ModelAndView("registrationForm.jsp", "status", sFormStatus);
@@ -76,31 +75,24 @@ public class RegistrationController {
 
                 if ("username".equals(error.getField())) {
                     //set error message in username input
-                    sFormStatus.setsUsername("<div class=\"form-group has-error\">\n"
-                            + "<p class=\"help-block\"> <small><b>" + error.getDefaultMessage() + "</b></small></p>\n"
-                            + "</div>");
+                    sFormStatus.setsUsername(error.getDefaultMessage());
                     sFormStatus.setsUsernameInput("has-error");
                 }
 
                 if ("password".equals(error.getField())) {
                     //set error message in password input
-                    sFormStatus.setsPassword("<div class=\"form-group has-error\">\n"
-                            + "<p class=\"help-block\"> <small><b>" + error.getDefaultMessage() + "</b></small></p>\n"
-                            + "</div>");
+                    sFormStatus.setsPassword(error.getDefaultMessage());
                     sFormStatus.setsPasswordInput("has-error");
                 }
 
                 if ("email".equals(error.getField())) {
                     //set error message in email input
-                    sFormStatus.setsEmail("<div class=\"form-group has-error\">\n"
-                            + "<p class=\"help-block\"> <small><b>" + error.getDefaultMessage() + "</b></small></p>\n"
-                            + "</div>");
+                    sFormStatus.setsEmail(error.getDefaultMessage());
                     sFormStatus.setsEmailInput("has-error");
                 }
 
-                sFormStatus.setsStatus("<div class=\"form-group has-error\">\n"
-                        + "<p class=\"help-block\"><b>Please fill out the form correctly</b></p>\n"
-                        + "</div>");
+                sFormStatus.setsStatus("Please fill out the form correctly");
+                sFormStatus.setsInput("has-error");
             }
             System.out.println(result.getFieldErrors());
 
@@ -115,9 +107,8 @@ public class RegistrationController {
                 newMemberDao.persist(new NewMember(username, password, email));
                 System.out.println(result + "Form Results - Valid and Saved");
 
-                sFormStatus.setsStatus("<div class=\"form-group has-success\">\n"
-                        + "<p class=\"help-block\"> <b>Form Successfully Registered!</b></p>\n"
-                        + " </div>");
+                sFormStatus.setsStatus("Form Successfully Registered!");
+                sFormStatus.setsInput("has-success");
 
             } catch (Exception e) {
                 System.out.println(e.getMessage() + "User Already Exist");
@@ -126,9 +117,8 @@ public class RegistrationController {
                 sFormStatus.setsPasswordInput("has-error");
                 sFormStatus.setsEmailInput("has-error");
 
-                sFormStatus.setsStatus("<div class=\"form-group has-error\">\n"
-                        + "<p class=\"help-block\"><b>User is Already Exist, Please Log In</b></p>\n"
-                        + "</div>");
+                sFormStatus.setsStatus("User is Already Exist, Please Log In");
+                sFormStatus.setsInput("has-error");
             }
 
         }

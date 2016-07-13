@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form"
            prefix="form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="com.simplecrud.*"%>
 <!DOCTYPE html>
 <html>
@@ -33,31 +34,42 @@
                             <!-- Form -->
                             <form method="POST" action="register.html" commandName="newMemberForm" modelattribute="member">
                                 <!-- Username Input --> 
-                                <div class="form-group ${status.getsUsernameInput()}">
+                                <div class="form-group <c:out value='${status.getsUsernameInput()}'/>">
                                     <label for="exampleInputUsername">Username</label>
                                     <input required type="text" class="form-control" name="username" id="exampleInputUsername" placeholder="Username">
                                 </div>
-                                <!-- Display Error Text -->    
-                                ${status.sUsername}
+                                <!-- Display Error Text -->
+                                <div class="form-group has-error"> 
+                                    <p class="help-block"> <small><b><c:out value='${status.sUsername}'/></b></small></p> 
+                                </div> 
+
                                 <!-- Password Input --> 
-                                <div class="form-group ${status.getsPasswordInput()}">
+                                <div class="form-group <c:out value='${status.getsPasswordInput()}'/>">
                                     <label for="exampleInputPassword">Password</label>
                                     <input required type="password" class="form-control" name="password" id="exampleInputPassword" placeholder="Password">
                                 </div>
-                                <!-- Display Error Text --> 
-                                ${status.getsPassword()}
+                                <!-- Display Error Text -->
+                                <div class="form-group has-error"> 
+                                    <p class="help-block"> <small><b><c:out value='${status.getsPassword()}'/></b></small></p> 
+                                </div> 
+
                                 <!-- Email Input --> 
-                                <div class="form-group ${status.getsEmailInput()}">
+                                <div class="form-group <c:out value='${status.getsEmailInput()}'/>">
                                     <label for="exampleInputEmail">Email address</label>
                                     <input required type="email" class="form-control" name="email" id="exampleInputEmail" placeholder="Email">
                                 </div>
-                                <!-- Display Error Text --> 
-                                ${status.getsEmail()}
+                                <!-- Display Error Text -->
+                                <div class="form-group has-error"> 
+                                    <p class="help-block"> <small><b><c:out value='${status.getsEmail()}'/></b></small></p> 
+                                </div> 
+
                                 <button type="submit" class="btn btn-info">Submit</button>
                                 <a class="btn btn-info" href="login.html"> Log In</a>
                                 <br />
                                 <!-- Display Status Text --> 
-                                ${status.getsStatus()}
+                                <div class="form-group <c:out value='${status.getsInput()}'/>"> 
+                                    <p class="help-block"> <small><b><c:out value='${status.getsStatus()}'/></b></small></p> 
+                                </div> 
                             </form>
                         </div>
                     </div
