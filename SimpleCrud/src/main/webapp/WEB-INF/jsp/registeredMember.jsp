@@ -6,6 +6,9 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/tags/form"
+           prefix="form"%>
+<%@page import="com.simplecrud.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -13,6 +16,7 @@
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <!-- Latest compiled and minified JavaScript -->
+        <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,15 +46,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <form method="POST" action="updateuser.html" commandName="UpdateMemberForm" modelattribute="member">
                                     <tr class="text-center">
-                                        <td><c:out value="${UserInfo.getUsername()}"/></td> 
-                                        <td><c:out value="${UserInfo.getEmail()}"/></td>
-                                        <td><c:out value="${UserInfo.getDate()}"/></td>
-                                        <td>
-                                            <a href="#" class="btn btn-info">Edit</a>
-                                            <a href="#" class="btn btn-danger">Delete</a>
-                                        </td>
+                                    <input type="hidden" value="<c:out value="${UserInfo.getId()}"/>"/>
+                                    <td>
+                                        <span class="user_name"><c:out value="${UserInfo.getUsername()}"/></span>
+                                        <input style="display:none;" required value="<c:out value="${UserInfo.getUsername()}"/>" type="text" class="form-control edit_input" name="username" placeholder="Username">
+                                    </td> 
+                                    <td>
+                                        <span class="user_email"><c:out value="${UserInfo.getEmail()}"/></span>
+                                        <input style="display:none;" required value="<c:out value="${UserInfo.getEmail()}"/>" type="email" class="form-control edit_input" name="email" placeholder="Email">
+                                    </td>
+                                    <td>
+                                        <c:out value="${UserInfo.getDate()}"/>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-info edit_btn">Edit</a>
+                                        <button style="display:none;" type="submit" class="btn btn-info update_btn">Update</button>
+                                        <a href="#" style="display:none;" class="btn btn-warning edit_cancel">Cancel</a>
+                                        <a href="#" class="btn btn-danger">Delete</a>
+                                    </td>
                                     </tr>
+                                </form>
                                 </tbody>
                             </table>
                         </div>
@@ -62,3 +79,22 @@
     </body>
 </body>
 </html>
+<!-- Added Javascript to beautify UI -->
+<script type="text/javascript">
+    $('.edit_btn').click(function() {
+        $('.user_name').hide();
+        $('.user_email').hide();
+        $('.edit_input').show();
+        $('.edit_btn').hide();
+        $('.update_btn').show();
+        $('.edit_cancel').show();
+    });
+    $('.edit_cancel').click(function() {
+        $('.user_name').show();
+        $('.user_email').show();
+        $('.edit_input').hide();
+        $('.edit_btn').show();
+        $('.update_btn').hide();
+        $('.edit_cancel').hide();
+    });
+</script>

@@ -15,6 +15,7 @@ public class UserInfo {
     private String Username;
     private String Email;
     private String Date;
+    private Long Id;
 
     /**
      * @return the Username
@@ -56,6 +57,20 @@ public class UserInfo {
      */
     public void setDate(String Date) {
         this.Date = Date;
+    }
+
+    /**
+     * @return the Id
+     */
+    public Long getId() {
+        return Id;
+    }
+
+    /**
+     * @param Id the Id to set
+     */
+    public void setId(Long Id) {
+        this.Id = Id;
     }
     
 }
