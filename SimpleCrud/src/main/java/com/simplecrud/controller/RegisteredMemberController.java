@@ -38,6 +38,7 @@ public class RegisteredMemberController {
         long lUser_id = id;
         Object oUser_email_id, oUser_date_id, oUser_name_id;
 
+        //Try to Get User info
         try {
             //Get User Info
             oUser_name_id = userDao.getUserNamebyId(lUser_id);
