@@ -74,28 +74,32 @@ public class LogInController {
 
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            Object oUser_name, oUser_email, oUser_date;
+            Object oUser_id, oUser_email_id, oUser_date_id, oUser_name_id;
 
             try {
                 //get user in the db or check if exist
-                oUser_name = loginDao.getSpecificUsername(username, password);
-                //oUser_name Object convert to string
-                String sUsername = oUser_name.toString();
+                oUser_id = loginDao.getUserId(username, password);
+                //oUser_id Object convert to string to 
+                String sUserId = oUser_id.toString();
+                Long lUser_id = Long.parseLong(sUserId);
 
-                oUser_email = userDao.getUserEmail(sUsername);
-                oUser_date = userDao.getUserSigningDate(sUsername);
+                //Get User Info
+                oUser_name_id = userDao.getUserNamebyId(lUser_id);
+                oUser_email_id = userDao.getUserEmailbyId(lUser_id);
+                oUser_date_id = userDao.getUserSigningDatebyId(lUser_id);
 
-                //oUser_email & oUser_date objects convert to string
-                String sUser_email = oUser_email.toString();
-                String sUser_date = oUser_date.toString();
+                //oUser_email & oUser_date & oUser_name objects convert to string
+                String sUser_name_id = oUser_name_id.toString();
+                String sUser_email_id = oUser_email_id.toString();
+                String sUser_date_id = oUser_date_id.toString();
 
                 //Set User Information
                 UserInfo user = new UserInfo();
-                user.setUsername(sUsername);
-                user.setEmail(sUser_email);
-                user.setDate(sUser_date);
+                user.setUsername(sUser_name_id);
+                user.setEmail(sUser_email_id);
+                user.setDate(sUser_date_id);
 
-                System.out.println(oUser_email + "Resulted Query");
+                System.out.println(oUser_name_id + "Resulted Query");
 
                 // Prepare the oQueryresult view (registeredMember.jsp):
                 return new ModelAndView("registeredMember.jsp", "UserInfo", user);

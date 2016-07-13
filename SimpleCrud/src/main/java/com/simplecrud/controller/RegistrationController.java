@@ -10,7 +10,6 @@ import com.simplecrud.NewMember;
 import com.simplecrud.dao.NewMemberDao;
 import com.simplecrud.validator.ValidateMember;
 import java.util.List;
-import javax.persistence.EntityExistsException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -25,7 +25,7 @@ public class NewMember implements Serializable {
     // Persistent Fields:
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @Unique
     private String username;
     private String password;
@@ -54,9 +54,23 @@ public class NewMember implements Serializable {
     // String Representation:
     @Override
     public String toString() {
-        return "<td>" +username + "</td>\n"
-                + "<td>" +email + "</td>\n"
-                + "<td>" +signingDate+ "</td>";
+        return "<td>" + username + "</td>\n"
+                + "<td>" + email + "</td>\n"
+                + "<td>" + signingDate + "</td>";
+    }
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
 }

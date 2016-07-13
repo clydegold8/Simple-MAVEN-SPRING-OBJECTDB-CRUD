@@ -28,6 +28,7 @@
                     <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">User Info</h3>
+                            <a style="margin-top:-23px;" class="pull-right text-right btn btn-danger btn-sm" href="<c:url value="j_spring_security_logout"/>"> Log Out</a>
                         </div>
                         <div class="panel-body">
                             <!-- Table -->

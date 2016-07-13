@@ -37,5 +37,13 @@ public class LogInDao {
         q.setParameter("password", password);
         return q.getSingleResult();
     }
+    
+    public Object getUserId(String username, String password) {
+
+        TypedQuery<NewMember> q = em.createQuery("SELECT n.id FROM NewMember n WHERE n.username = :username AND n.password = :password", NewMember.class);
+        q.setParameter("username", username);
+        q.setParameter("password", password);
+        return q.getSingleResult();
+    }
 
 }

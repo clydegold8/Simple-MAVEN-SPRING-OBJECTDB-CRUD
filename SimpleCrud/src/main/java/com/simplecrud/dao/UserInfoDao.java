@@ -58,4 +58,40 @@ public class UserInfoDao {
         return q.getSingleResult();
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Object getUserEmailbyId(Long id) {
+
+        TypedQuery<NewMember> q = em.createQuery("SELECT n.email FROM NewMember n WHERE n.id = :id", NewMember.class);
+        q.setParameter("id", id);
+        return q.getSingleResult();
+    }
+
+    /**
+     *
+     * @param Id
+     * @return
+     */
+    public Object getUserSigningDatebyId(Long Id) {
+
+        TypedQuery<NewMember> q = em.createQuery("SELECT n.signingDate FROM NewMember n WHERE n.id = :Id", NewMember.class);
+        q.setParameter("Id", Id);
+        return q.getSingleResult();
+    }
+
+    /**
+     *
+     * @param Id
+     * @return
+     */
+    public Object getUserNamebyId(Long Id) {
+
+        TypedQuery<NewMember> q = em.createQuery("SELECT n.username FROM NewMember n WHERE n.id = :Id", NewMember.class);
+        q.setParameter("Id", Id);
+        return q.getSingleResult();
+    }
+
 }
