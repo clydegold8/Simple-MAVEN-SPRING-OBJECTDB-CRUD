@@ -70,7 +70,7 @@ public class LogInController {
 
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-            Object oUser_id, oUser_email_id, oUser_date_id, oUser_name_id;
+            Object oUser_id;
 
             try {
                 //get user in the db or check if exist
