@@ -6,10 +6,9 @@
 package com.simplecrud.controller;
 
 import com.simplecrud.FormStatus;
-import com.simplecrud.UserInfo;
 import com.simplecrud.dao.LogInDao;
-import com.simplecrud.dao.UserInfoDao;
 import com.simplecrud.validator.ValidateLogIn;
+import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -31,14 +31,27 @@ public class LogInController {
      * get Log In page
      *
      * @param request
+     * @param response
+     * @param classerror
      * @return view
      */
     @RequestMapping(value = "/login")
-    public ModelAndView getLogInPage(HttpServletRequest request) {
-        System.out.println(request + "Load login Page 1");
+    public ModelAndView getLogInPage(HttpServletRequest request,
+            @RequestParam(value = "response", required = false) String response,
+            @RequestParam(value = "classerror", required = false) String classerror) {
+
+        System.out.println(request + "Load login Page 1  " + response + "  " + classerror + " ");
+
+        FormStatus sFormStatus = new FormStatus();
+
+        if ((response != null) && (classerror != null)) {
+            //set error message in logging in
+            sFormStatus.setsStatus(response);
+            sFormStatus.setsInput(classerror);
+        }
 
         // Prepare the oQueryresult view (logInForm.jsp):
-        return new ModelAndView("logInForm.jsp");
+        return new ModelAndView("logInForm.jsp", "status", sFormStatus);
     }
 
     @Autowired
@@ -60,12 +73,10 @@ public class LogInController {
         FormStatus sFormStatus = new FormStatus();
 
         //Validate Entered Credentials
-        //if validated form has errors
         if (result.hasErrors()) {
+            //return to login page
+            return new ModelAndView("redirect:/login.html?response=Incorrect Username and Password&classerror=has-error");
 
-            //set error message in logging in
-            sFormStatus.setsStatus("Incorrect Username and Password");
-            sFormStatus.setsInput("has-error");
         } else {
 
             String username = request.getParameter("username");
@@ -79,21 +90,14 @@ public class LogInController {
                 String sUserId = oUser_id.toString();
                 Long lUser_id = Long.parseLong(sUserId);
 
-                // Prepare the oQueryresult view (registeredMember.jsp):
+                //Query Success Prepare view (registeredMember.jsp):
                 return new ModelAndView("redirect:/registeredmember.html?id=" + lUser_id + "");
 
-            } catch (Exception e) {
+            } catch (NoResultException e) {
                 System.out.println(e + "Non Entity");
-
-                //set error message in logging in
-                sFormStatus.setsStatus("Incorrect Username and Password");
-                sFormStatus.setsInput("has-error");
             }
-
+            //Query Failed Prepare view (logInForm.jsp):
+            return new ModelAndView("redirect:/login.html?response=Incorrect Username and Password&classerror=has-error");
         }
-        // Prepare the oQueryresult view (logInForm.jsp):
-        return new ModelAndView("logInForm.jsp", "status", sFormStatus);
-
     }
-
 }

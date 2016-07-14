@@ -33,7 +33,7 @@
                         </div>
                         <div class="panel-body">
                             <!-- Form -->
-                            <form method="POST" action="" commandName="newMemberForm" modelattribute="member">
+                            <form method="POST" action="register.html" commandName="newMemberForm" modelattribute="member">
                                 <!-- Username Input --> 
                                 <div class="form-group <c:out value='${status.getsUsernameInput()}'/>">
                                     <label for="exampleInputUsername">Username</label>
