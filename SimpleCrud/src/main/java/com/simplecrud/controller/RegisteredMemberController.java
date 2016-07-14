@@ -23,7 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class RegisteredMemberController {
-    
+
     @Autowired
     private UserInfoDao userDao;
 
@@ -36,8 +36,7 @@ public class RegisteredMemberController {
     @RequestMapping(value = "/registeredmember")
     public ModelAndView registeredMember(HttpServletRequest request, @RequestParam long id) {
         System.out.println(request + "Load Registered Member Page  " + id);
-        
-        long lUser_id = id;
+
         Object oUser_email_id, oUser_date_id, oUser_name_id, oUser_password_id;
 
         //Try to Get User info
@@ -56,17 +55,17 @@ public class RegisteredMemberController {
 
             //Set User Information
             UserInfo user = new UserInfo();
-            user.setId(lUser_id);
+            user.setId(id);
             user.setUsername(sUser_name_id);
             user.setEmail(sUser_email_id);
             user.setDate(sUser_date_id);
             user.setPassword(sUser_password_id);
-            
+
             System.out.println(oUser_name_id + "Resulted Query");
 
             // Prepare the result view (registeredMember.jsp):
             return new ModelAndView("registeredMember.jsp", "UserInfo", user);
-            
+
         } catch (Exception e) {
             FormStatus sFormStatus = new FormStatus();
 
@@ -77,7 +76,7 @@ public class RegisteredMemberController {
             // Prepare the result view (registeredMember.jsp):
             return new ModelAndView("logInForm.jsp", "status", sFormStatus);
         }
-        
+
     }
 
     /**
@@ -95,7 +94,7 @@ public class RegisteredMemberController {
             @PathVariable("method") String methodCall,
             @RequestParam(value = "username", required = false) String username,
             @RequestParam(value = "email", required = false) String email) {
-        
+
         System.out.println(request + "Load Method Page... userId = " + id + " Method = " + methodCall + "");
 
         // Prepare the result view (registeredMember.jsp):
