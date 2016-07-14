@@ -3,7 +3,10 @@
 [![Latest Stable Version](https://poser.pugx.org/phpunit/phpunit/version)]()
 [![Latest Unstable Version](https://poser.pugx.org/simple-crud/simple-crud/v/unstable)]()
 [![License](https://poser.pugx.org/simple-crud/simple-crud/license)]()
-[![License](https://www.w3.org/Icons/valid-html20)]()
+
+[![License](https://www.w3.org/Icons/valid-html401)]()
+[![License](https://www.w3.org/Icons/valid-css2)]()
+
 
 
 
