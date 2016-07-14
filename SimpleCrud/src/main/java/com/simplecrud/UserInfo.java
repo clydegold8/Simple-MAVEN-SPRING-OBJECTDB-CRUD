@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.simplecrud;
 
 /**
@@ -11,10 +10,11 @@ package com.simplecrud;
  * @author VIZI-BILL PH
  */
 public class UserInfo {
-    
+
     private String Username;
     private String Email;
     private String Date;
+    private String Password;
     private Long Id;
 
     /**
@@ -72,5 +72,19 @@ public class UserInfo {
     public void setId(Long Id) {
         this.Id = Id;
     }
-    
+
+    /**
+     * @return the Password
+     */
+    public String getPassword() {
+        return Password;
+    }
+
+    /**
+     * @param Password the Password to set
+     */
+    public void setPassword(String Password) {
+        this.Password = Password;
+    }
+
 }

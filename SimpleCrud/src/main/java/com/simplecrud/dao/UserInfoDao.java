@@ -94,4 +94,11 @@ public class UserInfoDao {
         return q.getSingleResult();
     }
 
+    public Object getUserPasswordbyId(Long Id) {
+
+        TypedQuery<NewMember> q = em.createQuery("SELECT n.password FROM NewMember n WHERE n.id = :Id", NewMember.class);
+        q.setParameter("Id", Id);
+        return q.getSingleResult();
+    }
+
 }

@@ -41,6 +41,7 @@
                                     <tr>
                                         <td><b>Username</b></td>
                                         <td><b>Email</b></td>
+                                        <td><b>Password</b></td>
                                         <td><b>Signing Date</b></td>
                                         <td><b>Options</b></td>
                                     </tr>
@@ -56,6 +57,10 @@
                                     <td>
                                         <span class="user_email"><c:out value="${UserInfo.getEmail()}"/></span>
                                         <input style="display:none;" required value="<c:out value="${UserInfo.getEmail()}"/>" type="email" class="form-control edit_input" name="email" placeholder="Email">
+                                    </td>
+                                    <td>
+                                        <span class="user_password">To Change Password Click Edit Button</span>
+                                        <input style="display:none;" required value="<c:out value="${UserInfo.getPassword()}"/>" type="password" class="form-control edit_input" name="password" placeholder="Password">
                                     </td>
                                     <td>
                                         <c:out value="${UserInfo.getDate()}"/>
@@ -84,6 +89,7 @@
     $('.edit_btn').click(function() {
         $('.user_name').hide();
         $('.user_email').hide();
+        $('.user_password').hide();
         $('.edit_input').show();
         $('.edit_btn').hide();
         $('.update_btn').show();
@@ -92,6 +98,7 @@
     $('.edit_cancel').click(function() {
         $('.user_name').show();
         $('.user_email').show();
+        $('.user_password').show();
         $('.edit_input').hide();
         $('.edit_btn').show();
         $('.update_btn').hide();
