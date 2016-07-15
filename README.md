@@ -16,3 +16,8 @@
 
 
 This is a simple to intermediate sample of Create,Retrieve,Update and Delete (C.R.U.D) operations using JAVA programming language where it is powered by Maven Project , Spring Framework and ObjectDB as back-end. This project is also have basic security like avoiding <code>POST_BACK</code> bugs. 
+
+
+## Requirements
+*   Java JDK 6.0
+*   NetBeans (Java or All bundle) or Preffered IDE.
