@@ -101,4 +101,15 @@ public class UserInfoDao {
         return q.getSingleResult();
     }
 
+    public Object updateUserInfo(long Id, String username, String password, String email) {
+
+        TypedQuery<NewMember> q = em.createQuery("UPDATE NewMember n SET n.username = :username,n.password = :password,n.email=:email "
+                + "WHERE n.id = :Id", NewMember.class);
+        q.setParameter("Id", Id);
+        q.setParameter("username", username);
+        q.setParameter("password", password);
+        q.setParameter("email", email);
+        return 1;
+    }
+
 }

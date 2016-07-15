@@ -19,6 +19,7 @@ public class FormStatus {
     private String sUsernameInput;
     private String sPasswordInput;
     private String sEmailInput;
+    private long id;
 
     /**
      * @return the sStatus
@@ -130,6 +131,20 @@ public class FormStatus {
      */
     public void setsEmailInput(String sEmailInput) {
         this.sEmailInput = sEmailInput;
+    }
+
+    /**
+     * @return the id
+     */
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
     }
 
 }

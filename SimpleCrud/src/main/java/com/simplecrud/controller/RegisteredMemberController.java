@@ -6,12 +6,19 @@
 package com.simplecrud.controller;
 
 import com.simplecrud.FormStatus;
+import com.simplecrud.NewMember;
 import com.simplecrud.UserInfo;
 import com.simplecrud.dao.UserInfoDao;
+import com.simplecrud.validator.ValidateMember;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,13 +38,52 @@ public class RegisteredMemberController {
      *
      * @param request
      * @param id
+     * @param ErrorUsername
+     * @param ErrorPassword
+     * @param ErrorEmail
+     * @param response
      * @return view
      */
     @RequestMapping(value = "/registeredmember")
-    public ModelAndView registeredMember(HttpServletRequest request, @RequestParam long id) {
+    public ModelAndView registeredMember(HttpServletRequest request,
+            @RequestParam(value = "id", required = false) long id,
+            @RequestParam(value = "ErrorUsername", required = false) String ErrorUsername,
+            @RequestParam(value = "ErrorPassword", required = false) String ErrorPassword,
+            @RequestParam(value = "ErrorEmail", required = false) String ErrorEmail,
+            @RequestParam(value = "response", required = false) String response) {
+
         System.out.println(request + "Load Registered Member Page  " + id);
 
         Object oUser_email_id, oUser_date_id, oUser_name_id, oUser_password_id;
+        FormStatus sFormStatus = new FormStatus();
+
+        if ("error".equals(response)) {
+            sFormStatus.setId(id);
+
+            //Check for errors
+            if (ErrorUsername != null) {
+                sFormStatus.setsUsername(ErrorUsername);
+                sFormStatus.setsUsernameInput("has-error");
+            }
+            if (ErrorPassword != null) {
+                sFormStatus.setsPassword(ErrorPassword);
+                sFormStatus.setsPasswordInput("has-error");
+            }
+            if (ErrorEmail != null) {
+                System.out.println((ErrorEmail == "null"));
+                System.out.println((ErrorEmail));
+
+                sFormStatus.setsEmail(ErrorEmail);
+                sFormStatus.setsEmailInput("has-error");
+            }
+
+            sFormStatus.setsStatus("Please fill out the fields correctly");
+            sFormStatus.setsInput("has-error");
+
+            System.out.println(response + "Return error");
+
+            return new ModelAndView("registeredMember.jsp", "status", sFormStatus);
+        }
 
         //Try to Get User info
         try {
@@ -67,7 +113,8 @@ public class RegisteredMemberController {
             return new ModelAndView("registeredMember.jsp", "UserInfo", user);
 
         } catch (Exception e) {
-            FormStatus sFormStatus = new FormStatus();
+
+            System.out.println(e + " Invalid Credentials");
 
             //set error message
             sFormStatus.setsStatus("Invalid User Credetials, Please Register or Log In Again");
@@ -81,23 +128,73 @@ public class RegisteredMemberController {
 
     /**
      *
+     * @param member
+     * @param result
+     * @param model
      * @param request
-     * @param id
-     * @param methodCall
-     * @param username
-     * @param email
      * @return
      */
-    @RequestMapping(value = "/registeredmember/{id}/{method}", method = RequestMethod.GET)
-    public ModelAndView updateMember(HttpServletRequest request,
-            @PathVariable("id") long id,
-            @PathVariable("method") String methodCall,
-            @RequestParam(value = "username", required = false) String username,
-            @RequestParam(value = "email", required = false) String email) {
+    @RequestMapping(value = "/updateuser", method = RequestMethod.POST)
+    public ModelAndView validateandUpdateUser(@Valid @ModelAttribute("UpdateMemberForm") ValidateMember member, BindingResult result, Model model, HttpServletRequest request) {
 
-        System.out.println(request + "Load Method Page... userId = " + id + " Method = " + methodCall + "");
+        String id = request.getParameter("id");
 
-        // Prepare the result view (registeredMember.jsp):
-        return new ModelAndView("redirect:/registeredmember.html");
+        FormStatus sFormStatus = new FormStatus();
+
+        //if validated form has errors
+        if (result.hasErrors()) {
+
+            //handle errors in the inputs
+            List<FieldError> errors = result.getFieldErrors();
+            for (FieldError error : errors) {
+                System.out.println(error.getField() + " - " + error.getDefaultMessage());
+
+                if ("username".equals(error.getField())) {
+                    //set error message in username input
+                    sFormStatus.setsUsername(error.getDefaultMessage());
+                    sFormStatus.setsUsernameInput("has-error");
+                }
+
+                if ("password".equals(error.getField())) {
+                    //set error message in password input
+                    sFormStatus.setsPassword(error.getDefaultMessage());
+                    sFormStatus.setsPasswordInput("has-error");
+                }
+
+                if ("email".equals(error.getField())) {
+                    //set error message in email input
+                    sFormStatus.setsEmail(error.getDefaultMessage());
+                    sFormStatus.setsEmailInput("has-error");
+                }
+
+            }
+            System.out.println(result.getFieldErrors());
+            return new ModelAndView("redirect:/registeredmember.html?"
+                    + "&ErrorUsername=" + sFormStatus.getsUsername() + ""
+                    + "&ErrorPassword=" + sFormStatus.getsPassword() + ""
+                    + "&ErrorEmail=" + sFormStatus.getsEmail() + ""
+                    + "&response=error&id=" + id + "");
+
+        } else {
+
+            String sUsername = request.getParameter("username");
+            String sPassword = request.getParameter("password");
+            String sEmail = request.getParameter("email");
+            Long lUser_id = Long.parseLong(id);
+
+            //try to save the form
+            try {
+                System.out.println(sUsername + " username");
+                userDao.updateUserInfo(lUser_id, sUsername, sPassword, sEmail);
+
+                return new ModelAndView("redirect:/registeredmember.html?response=success&id=" + id + "");
+
+            } catch (Exception e) {
+                System.out.println(e.getMessage() + " Error updating form");
+            }
+            return new ModelAndView("redirect:/registration.html?response=ErrorUpdatingForm");
+        }
+
     }
+
 }

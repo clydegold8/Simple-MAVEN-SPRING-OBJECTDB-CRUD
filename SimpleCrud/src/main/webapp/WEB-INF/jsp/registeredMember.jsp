@@ -49,18 +49,27 @@
                                 <tbody>
                                 <form method="POST" action="updateuser.html" commandName="UpdateMemberForm" modelattribute="member">
                                     <tr class="text-center">
-                                    <input type="hidden" value="<c:out value="${UserInfo.getId()}"/>"/>
+                                    <input type="hidden" name="id" value="<c:out value="${UserInfo.getId()}"/><c:out value="${status.getId()}"/>"/>
                                     <td>
                                         <span class="user_name"><c:out value="${UserInfo.getUsername()}"/></span>
-                                        <input style="display:none;" required value="<c:out value="${UserInfo.getUsername()}"/>" type="text" class="form-control edit_input" name="username" placeholder="Username">
+                                        <input style="display:none;"  value="<c:out value="${UserInfo.getUsername()}"/>" type="text" class="form-control edit_input" name="username" placeholder="Username">
+                                        <div class="form-group <c:out value='${status.getsInput()}'/>"> 
+                                            <p class="help-block"> <small><b><c:out value='${status.sUsername}'/></b></small></p> 
+                                        </div>
                                     </td> 
                                     <td>
                                         <span class="user_email"><c:out value="${UserInfo.getEmail()}"/></span>
-                                        <input style="display:none;" required value="<c:out value="${UserInfo.getEmail()}"/>" type="email" class="form-control edit_input" name="email" placeholder="Email">
+                                        <input style="display:none;"  value="<c:out value="${UserInfo.getEmail()}"/>" type="email" class="form-control edit_input" name="email" placeholder="Email">
+                                        <div class="form-group <c:out value='${status.getsInput()}'/>"> 
+                                            <p class="help-block"> <small><b><c:out value='${status.getsEmail()}'/></b></small></p> 
+                                        </div>
                                     </td>
                                     <td>
                                         <span class="user_password">To Change Password Click Edit Button</span>
-                                        <input style="display:none;" required value="<c:out value="${UserInfo.getPassword()}"/>" type="password" class="form-control edit_input" name="password" placeholder="Password">
+                                        <input style="display:none;"  value="<c:out value="${UserInfo.getPassword()}"/>" type="password" class="form-control edit_input" name="password" placeholder="Password">
+                                        <div class="form-group <c:out value='${status.getsInput()}'/>"> 
+                                            <p class="help-block"> <small><b><c:out value='${status.getsPassword()}'/></b></small></p>
+                                        </div>
                                     </td>
                                     <td>
                                         <c:out value="${UserInfo.getDate()}"/>
@@ -75,6 +84,10 @@
                                 </form>
                                 </tbody>
                             </table>
+                            <!-- Display Status Text --> 
+                            <div class="form-group <c:out value='${status.getsInput()}'/>"> 
+                                <p class="help-block"> <small><b><c:out value='${status.getsStatus()}'/></b></small></p> 
+                            </div>         
                         </div>
                     </div>
                 </div>

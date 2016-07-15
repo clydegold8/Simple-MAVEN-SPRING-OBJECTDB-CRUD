@@ -14,10 +14,13 @@ import org.hibernate.validator.constraints.*;
  */
 public class ValidateMember {
 
+    @NotNull
     @Size(min = 5, max = 20, message = " Username should have 5 to 20 characters")
     private String username;
+    @NotNull
     @Size(min = 5, max = 20, message = " Password should have 5 to 20 characters")
     private String password;
+    @NotNull
     @NotEmpty(message = "Email Invalid")
     private String email;
 

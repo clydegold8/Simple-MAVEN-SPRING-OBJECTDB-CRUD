@@ -118,19 +118,17 @@ public class RegistrationController {
                 if ("username".equals(error.getField())) {
                     //set error message in username input
                     sFormStatus.setsUsername(error.getDefaultMessage());
-                    sFormStatus.setsUsernameInput("has-error");
+
                 }
 
                 if ("password".equals(error.getField())) {
                     //set error message in password input
                     sFormStatus.setsPassword(error.getDefaultMessage());
-                    sFormStatus.setsPasswordInput("has-error");
                 }
 
                 if ("email".equals(error.getField())) {
                     //set error message in email input
                     sFormStatus.setsEmail(error.getDefaultMessage());
-                    sFormStatus.setsEmailInput("has-error");
                 }
 
             }
