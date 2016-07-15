@@ -19,7 +19,7 @@ This is a simple to intermediate sample of Create,Retrieve,Update and Delete (C.
 
 
 ## :point_right: Requirements
-*   Java JDK 6.0
+*   Java JDK 6.0 (Preferrable) or Above
 *   NetBeans (Java or All bundle) or Preffered IDE.
 
 ##:point_right: Installation
