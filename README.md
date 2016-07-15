@@ -1,7 +1,7 @@
 ## Simple-C.R.U.D. Maven Project + SPRING Framework + ObjectDB backend
 
-[![Latest Stable Version](https://poser.pugx.org/phpunit/phpunit/version)]()
 [![Latest Unstable Version](https://img.shields.io/badge/Version-1.0-orange.svg)]()
+[![GitHub issues](https://img.shields.io/github/issues/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD.svg)](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/issues)
 [![GitHub forks](https://img.shields.io/github/forks/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD.svg)](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/network)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/master/LICENSE)
 
