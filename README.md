@@ -18,13 +18,13 @@
 This is a simple to intermediate sample of Create,Retrieve,Update and Delete (C.R.U.D) operations using JAVA programming language where it is powered by [Maven Project](http://maven.apache.org/#) ,[Spring Framework](https://projects.spring.io/spring-framework/) and [ObjectDB](http://www.objectdb.com/) as back-end. This project is also have basic security like avoiding <code>POST_BACK</code> bugs. This project also is a web application which is using a Web Framework [Bootstrap](http://getbootstrap.com/), which composed of Updated web technologies such as <code>HTML 5</code>,<code>CSS 3</code>,<code>JavaScript/JQuery</code>.
 
 
-## Requirements
+## :point_right: Requirements
 *   Java JDK 6.0
 *   NetBeans (Java or All bundle) or Preffered IDE.
 
-## Installation
+##:point_right: Installation
 *   Download the Project in my [Repo](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/archive/master.zip).
 *   Save to your desire path or location and Extract the Project.
 *   Open my Project with your Preffered IDE.
-*   Feel Free to Test my Project.
+*   Feel Free to Test my Project. :+1:
 
