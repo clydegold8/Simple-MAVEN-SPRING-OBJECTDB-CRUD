@@ -1,4 +1,4 @@
-## Simple-C.R.U.D. Maven Project + SPRING Framework + ObjectDB backend
+## Simple-C.R.U.D. using Maven Project + SPRING Framework + ObjectDB backend
 
 [![Latest Unstable Version](https://img.shields.io/badge/Version-1.0-orange.svg)](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD)
 [![GitHub license](https://img.shields.io/badge/Platform-Windows%20%7C%20IOS%20%7C%20Linux-yellow.svg)](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD)
@@ -15,5 +15,4 @@
 
 
 
-
-My Sample Source Code for MAVEN project where it shows the simple CRUD process using MVC Spring Framework and OBJECTDB back-end.
+This is a simple to intermediate sample of Create,Retrieve,Update and Delete (C.R.U.D) operations using JAVA programming language where it is powered by Maven Project , Spring Framework and ObjectDB as back-end. This project is also have basic security like avoiding <pre><code>POST_BACK</code></pre> bugs. 
