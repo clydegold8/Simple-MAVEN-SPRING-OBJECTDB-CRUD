@@ -21,6 +21,8 @@ This is a simple to intermediate sample of Create,Retrieve,Update and Delete (C.
 ## :point_right: Requirements
 *   Java JDK 6.0 (Preferrable) or Above
 *   NetBeans (Java or All bundle) or Preffered IDE.
+*   GlassFish Web Server (Other Web Server not no yet supported).
+*   Preferably Chorme and Mozilla browsers My project doesn't support IE. 
 
 ##:point_right: Installation
 *   Download the Project in my [Repo](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/archive/master.zip).
