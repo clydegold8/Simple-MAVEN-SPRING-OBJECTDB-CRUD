@@ -21,3 +21,10 @@ This is a simple to intermediate sample of Create,Retrieve,Update and Delete (C.
 ## Requirements
 *   Java JDK 6.0
 *   NetBeans (Java or All bundle) or Preffered IDE.
+
+## Installation
+*Download the Project in my [Repo](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/archive/master.zip).
+*Save to your desire path or location and Extract the Project.
+*Open my Project with your Preffered IDE.
+*Feel Free to Test my Project.
+
