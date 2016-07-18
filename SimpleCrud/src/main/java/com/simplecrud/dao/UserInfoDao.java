@@ -95,6 +95,11 @@ public class UserInfoDao {
         return q.getSingleResult();
     }
 
+    /**
+     *
+     * @param Id
+     * @return
+     */
     public Object getUserPasswordbyId(Long Id) {
 
         TypedQuery<NewMember> q = em.createQuery("SELECT n.password FROM NewMember n WHERE n.id = :Id", NewMember.class);
@@ -102,6 +107,14 @@ public class UserInfoDao {
         return q.getSingleResult();
     }
 
+    /**
+     *
+     * @param Id
+     * @param username
+     * @param password
+     * @param email
+     * @return
+     */
     @Transactional
     public Object updateUserInfo(long Id, String username, String password, String email) {
 
@@ -116,4 +129,21 @@ public class UserInfoDao {
         return "Field Succesfully Updated";
     }
 
+    /**
+     *
+     * @param Id
+     * @return
+     */
+    @Transactional
+    public Object deleteUserInfo(long Id) {
+
+        //fetch user info for deleting
+        NewMember member = em.find(NewMember.class, Id);
+        System.out.println(member + "  Result Query for deleting");
+
+        //Delete user
+        em.remove(member);
+
+        return true;
+    }
 }

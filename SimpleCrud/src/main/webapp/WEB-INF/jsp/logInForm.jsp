@@ -49,7 +49,7 @@
                                 <a class="btn btn-info" href="registration.html"> Register</a>
                                 <br />
                                 <!-- Display Status Text -->
-                                <div class="form-group has-error"> 
+                                <div class="form-group <c:out value='${status.getsInput()}'/>"> 
                                     <p class="help-block"> <b> <c:out value='${status.getsStatus()}'/></b></p> 
                                 </div>
                             </form>

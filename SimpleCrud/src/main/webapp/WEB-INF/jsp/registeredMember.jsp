@@ -18,6 +18,8 @@
         <!-- Latest compiled and minified JavaScript -->
         <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/bootbox/4.4.0/bootbox.min.js"></script>
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sample CRUD User Info</title>
@@ -47,7 +49,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <form method="POST" action="updateuser.html" commandName="UpdateMemberForm" modelattribute="member">
+                                <form id="form_update" method="POST" action="updateuser.html" commandName="UpdateMemberForm" modelattribute="member">
                                     <tr class="text-center">
                                     <input type="hidden" name="id" value="<c:out value="${UserInfo.getId()}"/><c:out value="${status.getId()}"/>"/>
                                     <td>
@@ -76,9 +78,9 @@
                                     </td>
                                     <td>
                                         <a href="#" class="btn btn-info edit_btn">Edit</a>
-                                        <button style="display:none;" type="submit" class="btn btn-info update_btn">Update</button>
+                                        <a style="display:none;" class="btn btn-info update_btn" href="#">Update</a>
                                         <a href="#" style="display:none;" class="btn btn-warning edit_cancel">Cancel</a>
-                                        <a href="#" class="btn btn-danger">Delete</a>
+                                        <a href="#" class="btn btn-danger btn-delete">Delete</a>
                                     </td>
                                     </tr>
                                 </form>
@@ -88,7 +90,7 @@
                             <div class="form-group <c:out value='${status.getsInput()}'/>"> 
                                 <p class="help-block"> <small><b><c:out value='${status.getsStatus()}'/></b></small></p> 
                             </div>
-                            <div class="form-group has-success"> 
+                            <div class="form-group <c:out value='${UserInfo.getErrorInput()}'/>"> 
                                 <p class="help-block"> <small><b><c:out value='${UserInfo.getResponse()}'/></b></small></p> 
                             </div> 
                         </div>
@@ -119,5 +121,19 @@
         $('.edit_btn').show();
         $('.update_btn').hide();
         $('.edit_cancel').hide();
+    });
+    $('.btn-delete').click(function() {
+        bootbox.confirm("Are you sure you want to Delete User <c:out value="${UserInfo.getUsername()}"/> ?", function(result) {
+            if (result) {
+                window.location = "deleteuser.html?id=<c:out value="${UserInfo.getId()}"/><c:out value="${status.getId()}"/>";
+            }
+        });
+    });
+    $('.update_btn').click(function() {
+        bootbox.confirm("Are you sure you want to Update User <c:out value="${UserInfo.getUsername()}"/> ?", function(result) {
+            if (result) {
+                document.getElementById("form_update").submit();
+            }
+        });
     });
 </script>

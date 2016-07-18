@@ -29,7 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class RegisteredMemberController {
-    
+
     @Autowired
     private UserInfoDao userDao;
 
@@ -41,6 +41,7 @@ public class RegisteredMemberController {
      * @param ErrorPassword
      * @param ErrorEmail
      * @param response
+     * @param classerror
      * @return view
      */
     @RequestMapping(value = "/registeredmember")
@@ -49,13 +50,14 @@ public class RegisteredMemberController {
             @RequestParam(value = "ErrorUsername", required = false) String ErrorUsername,
             @RequestParam(value = "ErrorPassword", required = false) String ErrorPassword,
             @RequestParam(value = "ErrorEmail", required = false) String ErrorEmail,
-            @RequestParam(value = "response", required = false) String response) {
-        
+            @RequestParam(value = "response", required = false) String response,
+            @RequestParam(value = "classerror", required = false) String classerror) {
+
         System.out.println(request + "Load Registered Member Page  " + id);
-        
+
         Object oUser_email_id, oUser_date_id, oUser_name_id, oUser_password_id;
         FormStatus sFormStatus = new FormStatus();
-        
+
         if ("error".equals(response)) {
             sFormStatus.setId(id);
 
@@ -71,16 +73,16 @@ public class RegisteredMemberController {
             if (ErrorEmail != null) {
                 System.out.println((ErrorEmail == "null"));
                 System.out.println((ErrorEmail));
-                
+
                 sFormStatus.setsEmail(ErrorEmail);
                 sFormStatus.setsEmailInput("has-error");
             }
-            
+
             sFormStatus.setsStatus("Please fill out the fields correctly");
             sFormStatus.setsInput("has-error");
-            
+
             System.out.println(response + "Return error");
-            
+
             return new ModelAndView("registeredMember.jsp", "status", sFormStatus);
         }
 
@@ -106,14 +108,15 @@ public class RegisteredMemberController {
             user.setDate(sUser_date_id);
             user.setPassword(sUser_password_id);
             user.setResponse(response);
-            
+            user.setErrorInput(classerror);
+
             System.out.println(oUser_name_id + "Resulted Query");
 
             // Prepare the result view (registeredMember.jsp):
             return new ModelAndView("registeredMember.jsp", "UserInfo", user);
-            
+
         } catch (Exception e) {
-            
+
             System.out.println(e + " Invalid Credentials");
 
             //set error message
@@ -123,7 +126,7 @@ public class RegisteredMemberController {
             // Prepare the result view (registeredMember.jsp):
             return new ModelAndView("logInForm.jsp", "status", sFormStatus);
         }
-        
+
     }
 
     /**
@@ -136,9 +139,9 @@ public class RegisteredMemberController {
      */
     @RequestMapping(value = "/updateuser", method = RequestMethod.POST)
     public ModelAndView validateandUpdateUser(@Valid @ModelAttribute("UpdateMemberForm") ValidateMember member, BindingResult result, Model model, HttpServletRequest request) {
-        
+
         String id = request.getParameter("id");
-        
+
         FormStatus sFormStatus = new FormStatus();
 
         //if validated form has errors
@@ -148,25 +151,25 @@ public class RegisteredMemberController {
             List<FieldError> errors = result.getFieldErrors();
             for (FieldError error : errors) {
                 System.out.println(error.getField() + " - " + error.getDefaultMessage());
-                
+
                 if ("username".equals(error.getField())) {
                     //set error message in username input
                     sFormStatus.setsUsername(error.getDefaultMessage());
                     sFormStatus.setsUsernameInput("has-error");
                 }
-                
+
                 if ("password".equals(error.getField())) {
                     //set error message in password input
                     sFormStatus.setsPassword(error.getDefaultMessage());
                     sFormStatus.setsPasswordInput("has-error");
                 }
-                
+
                 if ("email".equals(error.getField())) {
                     //set error message in email input
                     sFormStatus.setsEmail(error.getDefaultMessage());
                     sFormStatus.setsEmailInput("has-error");
                 }
-                
+
             }
             System.out.println(result.getFieldErrors());
             return new ModelAndView("redirect:/registeredmember.html?"
@@ -174,9 +177,9 @@ public class RegisteredMemberController {
                     + "&ErrorPassword=" + sFormStatus.getsPassword() + ""
                     + "&ErrorEmail=" + sFormStatus.getsEmail() + ""
                     + "&response=error&id=" + id + "");
-            
+
         } else {
-            
+
             String sUsername = request.getParameter("username");
             String sPassword = request.getParameter("password");
             String sEmail = request.getParameter("email");
@@ -186,15 +189,38 @@ public class RegisteredMemberController {
             try {
                 System.out.println(sUsername + " username" + sPassword + sEmail + lUser_id);
                 Object update_result = userDao.updateUserInfo(lUser_id, sUsername, sPassword, sEmail);
-                
-                return new ModelAndView("redirect:/registeredmember.html?response=" + update_result + "&id=" + id + "");
-                
+
+                return new ModelAndView("redirect:/registeredmember.html?classerror=has-success&response=" + update_result + "&id=" + id + "");
+
             } catch (Exception e) {
-                System.out.println(e + " Error updating form");
+                System.out.println(e.getMessage() + " Error updating form");
+                return new ModelAndView("redirect:/registeredmember.html?response=The Data you have typed is already exist, try another one.&classerror=has-error&id=" + id + "");
             }
-            return new ModelAndView("redirect:/registration.html?response=ErrorUpdatingForm");
+
         }
-        
+
     }
-    
+
+    /**
+     *
+     * @param request
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/deleteuser")
+    public ModelAndView registeredMember(HttpServletRequest request,
+            @RequestParam(value = "id", required = false) long id) {
+
+        //delete user
+        try {
+            Object oDelete_result = userDao.deleteUserInfo(id);
+            System.out.println(oDelete_result + " Delete ok");
+            return new ModelAndView("redirect:/login.html?response=User Successfully Deleted&classerror=has-success");
+        } catch (Exception e) {
+            System.out.println(e + " Delete error");
+            return new ModelAndView("redirect:/login.html?response=Delete Error&classerror=has-error");
+        }
+
+    }
+
 }

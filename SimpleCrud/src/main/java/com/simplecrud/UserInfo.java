@@ -16,6 +16,7 @@ public class UserInfo {
     private String Date;
     private String Password;
     private String Response;
+    private String ErrorInput;
     private Long Id;
 
     /**
@@ -100,6 +101,20 @@ public class UserInfo {
      */
     public void setResponse(String Response) {
         this.Response = Response;
+    }
+
+    /**
+     * @return the ErrorInput
+     */
+    public String getErrorInput() {
+        return ErrorInput;
+    }
+
+    /**
+     * @param ErrorInput the ErrorInput to set
+     */
+    public void setErrorInput(String ErrorInput) {
+        this.ErrorInput = ErrorInput;
     }
 
 }
