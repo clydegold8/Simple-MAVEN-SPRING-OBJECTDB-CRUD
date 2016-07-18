@@ -15,6 +15,7 @@ public class UserInfo {
     private String Email;
     private String Date;
     private String Password;
+    private String Response;
     private Long Id;
 
     /**
@@ -85,6 +86,20 @@ public class UserInfo {
      */
     public void setPassword(String Password) {
         this.Password = Password;
+    }
+
+    /**
+     * @return the Response
+     */
+    public String getResponse() {
+        return Response;
+    }
+
+    /**
+     * @param Response the Response to set
+     */
+    public void setResponse(String Response) {
+        this.Response = Response;
     }
 
 }

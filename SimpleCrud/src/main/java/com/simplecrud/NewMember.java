@@ -52,12 +52,12 @@ public class NewMember implements Serializable {
     }
 
     // String Representation:
-    @Override
-    public String toString() {
-        return "<td>" + username + "</td>\n"
-                + "<td>" + email + "</td>\n"
-                + "<td>" + signingDate + "</td>";
-    }
+//    @Override
+//    public String toString() {
+//        return "<td>" + getUsername() + "</td>\n"
+//                + "<td>" + getEmail() + "</td>\n"
+//                + "<td>" + signingDate + "</td>";
+//    }
 
     /**
      * @return the id
@@ -71,6 +71,48 @@ public class NewMember implements Serializable {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

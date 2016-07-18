@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
@@ -101,15 +102,18 @@ public class UserInfoDao {
         return q.getSingleResult();
     }
 
+    @Transactional
     public Object updateUserInfo(long Id, String username, String password, String email) {
 
-        TypedQuery<NewMember> q = em.createQuery("UPDATE NewMember n SET n.username = :username,n.password = :password,n.email=:email "
-                + "WHERE n.id = :Id", NewMember.class);
-        q.setParameter("Id", Id);
-        q.setParameter("username", username);
-        q.setParameter("password", password);
-        q.setParameter("email", email);
-        return 1;
+        //fetch user info for updating
+        NewMember member = em.find(NewMember.class, Id);
+        System.out.println(member + "  Result Query for update");
+        //update fields
+        member.setUsername(username);
+        member.setPassword(password);
+        member.setEmail(email);
+
+        return "Field Succesfully Updated";
     }
 
 }

@@ -87,7 +87,10 @@
                             <!-- Display Status Text --> 
                             <div class="form-group <c:out value='${status.getsInput()}'/>"> 
                                 <p class="help-block"> <small><b><c:out value='${status.getsStatus()}'/></b></small></p> 
-                            </div>         
+                            </div>
+                            <div class="form-group has-success"> 
+                                <p class="help-block"> <small><b><c:out value='${UserInfo.getResponse()}'/></b></small></p> 
+                            </div> 
                         </div>
                     </div>
                 </div>
