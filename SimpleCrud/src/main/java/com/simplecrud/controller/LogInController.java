@@ -10,6 +10,7 @@ import com.simplecrud.dao.LogInDao;
 import com.simplecrud.validator.ValidateLogIn;
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -64,13 +65,13 @@ public class LogInController {
      * @param result
      * @param model
      * @param request
+     * @param session
      * @return view
      */
     @RequestMapping(value = "/logging")
-    public ModelAndView validateUser(@Valid @ModelAttribute("LogInForm") ValidateLogIn login, BindingResult result, Model model, HttpServletRequest request) {
+    public ModelAndView validateUser(@Valid @ModelAttribute("LogInForm") ValidateLogIn login, BindingResult result, Model model, HttpServletRequest request,
+            HttpSession session) {
         System.out.println(request + "Load  login Page 2");
-
-        FormStatus sFormStatus = new FormStatus();
 
         //Validate Entered Credentials
         if (result.hasErrors()) {
@@ -90,14 +91,19 @@ public class LogInController {
                 String sUserId = oUser_id.toString();
                 Long lUser_id = Long.parseLong(sUserId);
 
+                session.invalidate();
+                HttpSession newSession = request.getSession(); // create session
+
+                System.out.println(newSession + " Load HTTPS Session");
                 //Query Success Prepare view (registeredMember.jsp):
                 return new ModelAndView("redirect:/registeredmember.html?id=" + lUser_id + "");
 
             } catch (NoResultException e) {
                 System.out.println(e + "Non Entity");
+                //Query Failed Prepare view (logInForm.jsp):
+                return new ModelAndView("redirect:/login.html?response=Incorrect Username and Password&classerror=has-error");
             }
-            //Query Failed Prepare view (logInForm.jsp):
-            return new ModelAndView("redirect:/login.html?response=Incorrect Username and Password&classerror=has-error");
+
         }
     }
 }

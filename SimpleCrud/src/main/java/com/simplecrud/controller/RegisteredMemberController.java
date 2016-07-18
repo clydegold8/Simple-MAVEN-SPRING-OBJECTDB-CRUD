@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -28,6 +29,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author VIZI-BILL PH
  */
 @Controller
+@SessionAttributes("status")
 public class RegisteredMemberController {
 
     @Autowired
@@ -45,6 +47,7 @@ public class RegisteredMemberController {
      * @return view
      */
     @RequestMapping(value = "/registeredmember")
+
     public ModelAndView registeredMember(HttpServletRequest request,
             @RequestParam(value = "id", required = false) long id,
             @RequestParam(value = "ErrorUsername", required = false) String ErrorUsername,
