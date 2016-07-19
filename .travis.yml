@@ -6,4 +6,16 @@ script:
 after_success:
   - mvn coveralls:report
 
+# run in travis' container based infrastructure; we don't have sudo there
+sudo: false
 
+before_deploy:
+  - export Project_CRUD=$(ls target/SimpleCrud.war)
+
+deploy:
+  provider: releases
+  api_key:"${GH_Token}"
+  file: "${Project_CRUD}"
+  skip_cleanup: true
+  on:
+    tags: true
