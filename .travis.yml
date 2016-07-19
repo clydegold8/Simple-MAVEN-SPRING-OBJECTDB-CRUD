@@ -9,8 +9,8 @@ before_deploy:
   - export Project_CRUD=$(ls target/SimpleCrud.war)
 deploy:
   provider: releases
-  api_key:"c740727d1389b4d88e1d911de217f7f1ba51f94e"
-  file:"${Project_CRUD}"
+  api_key:c740727d1389b4d88e1d911de217f7f1ba51f94e
+  file:${Project_CRUD}
   skip_cleanup: true
   on:
     repo: clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD
