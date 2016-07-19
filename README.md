@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD.svg?branch=master)](https://travis-ci.org/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD)
 [![Coverage Status](https://coveralls.io/repos/github/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/badge.svg?branch=master)](https://coveralls.io/github/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/badge.svg?branch=master)](https://coveralls.io/github/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD?branch=master)
 
 
 [![GitHub license](https://img.shields.io/badge/Platform-Windows%20%7C%20IOS%20%7C%20Linux-yellow.svg)](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD)
