@@ -5,7 +5,6 @@
  */
 package com.simplecrud;
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 /**
@@ -29,53 +28,158 @@ public class UserInfoTest extends TestCase {
     }
 
     /**
-     * Test of GetandSetUsername method, of class UserInfo.
+     * Test of getUsername method, of class UserInfo.
      */
-    public void testGetandSetUsername() {
-        System.out.println("SetandGetUsername");
+    public void testGetUsername() {
+        System.out.println("getUsername");
         UserInfo instance = new UserInfo();
         instance.setUsername("test");
-        assertTrue("test".equals(instance.getUsername()));
+        String expResult = "test";
+        String result = instance.getUsername();
+        assertEquals(expResult, result);
     }
 
     /**
-     * Test of GetandSetEmail method, of class UserInfo.
+     * Test of setUsername method, of class UserInfo.
      */
-    public void testGetandSetEmail() {
+    public void testSetUsername() {
+        System.out.println("setUsername");
+        String Username = "test";
+        UserInfo instance = new UserInfo();
+        instance.setUsername(Username);
+
+    }
+
+    /**
+     * Test of getEmail method, of class UserInfo.
+     */
+    public void testGetEmail() {
         System.out.println("getEmail");
         UserInfo instance = new UserInfo();
         instance.setEmail("test");
-        assertTrue("test".equals(instance.getEmail()));
+        String expResult = "test";
+        String result = instance.getEmail();
+        assertEquals(expResult, result);
     }
 
     /**
-     * Test of GetandSetDate method, of class UserInfo.
+     * Test of setEmail method, of class UserInfo.
      */
-    public void testGetandSetDate() {
+    public void testSetEmail() {
+        System.out.println("setEmail");
+        String Email = "test";
+        UserInfo instance = new UserInfo();
+        instance.setEmail(Email);
+    }
+
+    /**
+     * Test of getDate method, of class UserInfo.
+     */
+    public void testGetDate() {
         System.out.println("getDate");
         UserInfo instance = new UserInfo();
         instance.setDate("test");
-        assertTrue("test".equals(instance.getDate()));
+        String expResult = "test";
+        String result = instance.getDate();
+        assertEquals(expResult, result);
     }
 
     /**
-     * Test of GetandSetId method, of class UserInfo.
+     * Test of setDate method, of class UserInfo.
      */
-    public void testGetandSetId() {
+    public void testSetDate() {
+        System.out.println("setDate");
+        String Date = "test";
+        UserInfo instance = new UserInfo();
+        instance.setDate(Date);
+    }
+
+    /**
+     * Test of getId method, of class UserInfo.
+     */
+    public void testGetId() {
         System.out.println("getId");
         UserInfo instance = new UserInfo();
         instance.setId(1L);
-        assertTrue(1L == instance.getId());
+        long expResult = 1L;
+        long result = instance.getId();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setId method, of class UserInfo.
+     */
+    public void testSetId() {
+        System.out.println("setId");
+        Long Id = 1L;
+        UserInfo instance = new UserInfo();
+        instance.setId(Id);
     }
 
     /**
      * Test of getPassword method, of class UserInfo.
      */
-    public void testGetandSetPassword() {
-        System.out.println("GetandSetPassword");
+    public void testGetPassword() {
+        System.out.println("getPassword");
         UserInfo instance = new UserInfo();
         instance.setPassword("test");
-        Assert.assertTrue("test".equals(instance.getPassword()));
+        String expResult = "test";
+        String result = instance.getPassword();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setPassword method, of class UserInfo.
+     */
+    public void testSetPassword() {
+        System.out.println("setPassword");
+        String Password = "test";
+        UserInfo instance = new UserInfo();
+        instance.setPassword(Password);
+    }
+
+    /**
+     * Test of getResponse method, of class UserInfo.
+     */
+    public void testGetResponse() {
+        System.out.println("getResponse");
+        UserInfo instance = new UserInfo();
+        instance.setResponse("test");
+        String expResult = "test";
+        String result = instance.getResponse();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setResponse method, of class UserInfo.
+     */
+    public void testSetResponse() {
+        System.out.println("setResponse");
+        String Response = "test";
+        UserInfo instance = new UserInfo();
+        instance.setResponse(Response);
+    }
+
+    /**
+     * Test of getErrorInput method, of class UserInfo.
+     */
+    public void testGetErrorInput() {
+        System.out.println("getErrorInput");
+        UserInfo instance = new UserInfo();
+        instance.setErrorInput("test");
+        String expResult = "test";
+        String result = instance.getErrorInput();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setErrorInput method, of class UserInfo.
+     */
+    public void testSetErrorInput() {
+        System.out.println("setErrorInput");
+        String ErrorInput = "test";
+        UserInfo instance = new UserInfo();
+        instance.setErrorInput(ErrorInput);
     }
 
 }
