@@ -9,7 +9,7 @@ before_deploy:
   - export Project_CRUD=$(ls target/SimpleCrud.war)
 deploy:
   provider: releases
-  api_key:"985e12fb799a23078267e35b36e7ce7577ce80d7"
+  api_key:${gitApi}
   file:${Project_CRUD}
   skip_cleanup: true
   on:
