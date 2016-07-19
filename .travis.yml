@@ -10,6 +10,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: ${gitApi}
+  file_glob: true
   file: ${Project_CRUD}
   skip_cleanup: true
   on:
