@@ -6,14 +6,3 @@ script:
 after_success:
   - mvn coveralls:report
 
-
-before_deploy:
-  - export Project_CRUD=$(ls target/SimpleCrud.war)
-deploy:
-  provider: releases
-  api_key:"GH_Token"
-  file:"${Project_CRUD}"
-  skip_cleanup: true
-  on:
-    repo: clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD
-    tags: true
