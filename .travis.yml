@@ -14,8 +14,9 @@ before_deploy:
 
 deploy:
   provider: releases
-  api_key:"${GH_Token}"
-  file: "${Project_CRUD}"
+  api_key:${GH_Token}
+  file:"${Project_CRUD}"
   skip_cleanup: true
   on:
+    repo: clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD
     tags: true
