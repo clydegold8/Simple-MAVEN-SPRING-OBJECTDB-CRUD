@@ -13,5 +13,4 @@ deploy:
   file: ${Project_CRUD}
   skip_cleanup: true
   on:
-    repo: clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD
-    tags: true
+    branch: master
