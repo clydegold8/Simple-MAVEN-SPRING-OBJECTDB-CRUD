@@ -5,13 +5,11 @@ script:
   - mvn test jacoco:report
 after_success:
   - mvn coveralls:report
-before_deploy:
-  - export Project_CRUD=$(ls target/SimpleCrud.war)
 deploy:
   provider: releases
   api_key: ${gitApi}
   file_glob: true
-  file: ${Project_CRUD}
+  file: ./target/SimpleCrud.war
   skip_cleanup: true
   on:
     branch: master
