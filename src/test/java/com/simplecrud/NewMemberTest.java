@@ -115,4 +115,12 @@ public class NewMemberTest extends TestCase {
         instance.setEmail(email);
     }
 
+    public void testNewMemberClass() {
+        System.out.println("NewMemberClass");
+        String username = "test";
+        String password = "test";
+        String email = "test";
+        NewMember newMember = new NewMember(username, password, email);
+    }
+
 }
