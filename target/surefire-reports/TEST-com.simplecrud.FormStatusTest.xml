@@ -61,22 +61,22 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsPassword" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testSetsPassword" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testGetsUsername" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testSetsUsername" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsPassword" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testSetsStatus" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsStatus" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsInput" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testSetsInput" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testGetId" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testSetsEmail" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testSetId" time="0"/>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsStatus" time="0"/>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsInput" time="0.001"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testGetsEmail" time="0"/>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testSetsEmail" time="0"/>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsUsernameInput" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testSetsUsernameInput" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testGetsPasswordInput" time="0"/>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testSetsPasswordInput" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testGetsEmailInput" time="0"/>
   <testcase classname="com.simplecrud.FormStatusTest" name="testSetsEmailInput" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testGetsUsernameInput" time="0"/>
-  <testcase classname="com.simplecrud.FormStatusTest" name="testSetsPasswordInput" time="0"/>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testSetId" time="0"/>
+  <testcase classname="com.simplecrud.FormStatusTest" name="testGetId" time="0"/>
 </testsuite>

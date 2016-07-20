@@ -6,6 +6,9 @@
 package com.simplecrud.dao;
 
 import com.simplecrud.NewMember;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -146,4 +149,25 @@ public class UserInfoDao {
 
         return true;
     }
+
+    // Retrieves all the guests:
+    /**
+     *
+     * @return
+     */
+    public List getAllUser() {
+
+        TypedQuery<Object[]> query = em.createQuery(
+                "SELECT n.id, n.username, n.email, n.signingDate  FROM NewMember AS n", Object[].class);
+        List<Object[]> results = query.getResultList();
+
+        List list1 = new ArrayList();
+        for (Object[] result : results) {
+            String sUserInfo[] = new String[]{"Id: " + result[0] + "", "Username: " + result[1] + "", "Email: " + result[2] + "", "Signing Date: " + result[3] + ""};
+            list1.add(Arrays.toString(sUserInfo));
+        }
+        System.out.println(list1);
+        return list1;
+    }
+
 }

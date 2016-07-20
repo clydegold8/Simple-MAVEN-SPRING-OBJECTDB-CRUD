@@ -9,6 +9,7 @@ import com.simplecrud.FormStatus;
 import com.simplecrud.UserInfo;
 import com.simplecrud.dao.UserInfoDao;
 import com.simplecrud.validator.ValidateMember;
+import java.util.Arrays;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -114,6 +115,12 @@ public class RegisteredMemberController {
             user.setErrorInput(classerror);
 
             System.out.println(oUser_name_id + "Resulted Query");
+
+            List getAllUser = userDao.getAllUser();
+
+            user.setUserinfo(getAllUser);
+
+            System.out.println(getAllUser + " All User Query");
 
             // Prepare the result view (registeredMember.jsp):
             return new ModelAndView("registeredMember.jsp", "UserInfo", user);
