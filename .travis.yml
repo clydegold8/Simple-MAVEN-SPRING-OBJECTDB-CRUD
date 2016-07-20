@@ -5,11 +5,4 @@ script:
   - mvn test jacoco:report
 after_success:
   - mvn coveralls:report
-deploy:
-  provider: releases
-  api_key: ${gitApi}
-  file_glob: true
-  file: ./target/SimpleCrud.war
-  skip_cleanup: true
-  on:
-    branch: master
+
