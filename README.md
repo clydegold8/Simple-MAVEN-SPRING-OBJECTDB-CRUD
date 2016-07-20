@@ -1,6 +1,6 @@
 ## Simple-C.R.U.D. using Maven Project + SPRING Framework + ObjectDB backend
 
-[![GitHub version](https://badge.fury.io/gh/clydegold8%2FSimple-MAVEN-SPRING-OBJECTDB-CRUD.svg)](https://badge.fury.io/gh/clydegold8%2FSimple-MAVEN-SPRING-OBJECTDB-CRUD)
+[![GitHub version](https://badge.fury.io/gh/clydegold8%2FSimple-MAVEN-SPRING-OBJECTDB-CRUD.svg?ts=1)](https://badge.fury.io/gh/clydegold8%2FSimple-MAVEN-SPRING-OBJECTDB-CRUD)
 [![Build Status](https://travis-ci.org/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD.svg?branch=master)](https://travis-ci.org/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD)
 [![CircleCI](https://circleci.com/gh/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/tree/master.svg?style=shield&circle)](https://circleci.com/gh/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/badge.svg?branch=master&ts=1)](https://coveralls.io/github/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD?branch=master)
