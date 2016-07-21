@@ -1,6 +1,6 @@
 # exclude other files #
 ######################
-#SimpleCrud/target/*#
+target/generated-sources/*
 
 # Package Files #
 *.jar

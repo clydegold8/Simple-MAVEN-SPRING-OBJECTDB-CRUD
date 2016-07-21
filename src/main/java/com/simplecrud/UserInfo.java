@@ -20,7 +20,6 @@ public class UserInfo {
     private String Response;
     private String ErrorInput;
     private Long Id;
-    private List<Object>  userinfo;
 
     /**
      * @return the Username
@@ -118,20 +117,6 @@ public class UserInfo {
      */
     public void setErrorInput(String ErrorInput) {
         this.ErrorInput = ErrorInput;
-    }
-
-    /**
-     * @return the userinfo
-     */
-    public List<Object> getUserinfo() {
-        return userinfo;
-    }
-
-    /**
-     * @param userinfo the userinfo to set
-     */
-    public void setUserinfo(List<Object> userinfo) {
-        this.userinfo = userinfo;
     }
 
 }
