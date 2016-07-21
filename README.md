@@ -14,7 +14,7 @@
 
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/master/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD.svg)](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD.svg?ts=1)](https://github.com/clydegold8/Simple-MAVEN-SPRING-OBJECTDB-CRUD/stargazers)
 
 
 [![License](https://www.w3.org/Icons/valid-html401)]()
