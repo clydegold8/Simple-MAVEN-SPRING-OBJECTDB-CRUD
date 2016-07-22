@@ -182,4 +182,26 @@ public class UserInfoTest extends TestCase {
         instance.setErrorInput(ErrorInput);
     }
 
+    /**
+     * Test of getHas_Role method, of class UserInfo.
+     */
+    public void testGetHas_Role() {
+        System.out.println("GetHas_Role");
+        UserInfo instance = new UserInfo();
+        instance.setHas_Role("test");
+        String expResult = "test";
+        String result = instance.getHas_Role();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of SetHas_Role method, of class UserInfo.
+     */
+    public void testSetHas_Role() {
+        System.out.println("SetHas_Role");
+        String SetHas_Role = "test";
+        UserInfo instance = new UserInfo();
+        instance.setHas_Role(SetHas_Role);
+    }
+
 }
