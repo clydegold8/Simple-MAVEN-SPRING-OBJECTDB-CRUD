@@ -1,0 +1,11 @@
+------------------------------------------------------------------------------------------------------------------------
+
+[2016-07-22 10:03:32 #1 store] 
+Database 'C:\Users\VIZI-BILL PH\Documents\GitHub\Simple-MAVEN-SPRING-OBJECTDB-CRUD\target\SimpleCrud\WEB-INF\db\simple.odb' is opened by 9412@Admin
+
+[2016-07-22 11:47:54 #2 type.registry] 
+New type com.simplecrud.NewMember
+
+[2016-07-22 11:51:14 #3 store] 
+Database 'C:\Users\VIZI-BILL PH\Documents\GitHub\Simple-MAVEN-SPRING-OBJECTDB-CRUD\target\SimpleCrud\WEB-INF\db\simple.odb' is closed by 9412@Admin
+

@@ -5,11 +5,14 @@
  */
 package com.simplecrud;
 
+import java.io.Serializable;
+
 /**
  *
  * @author VIZI-BILL PH
  */
-public class FormStatus {
+public class FormStatus implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String sStatus;
     private String sUsername;

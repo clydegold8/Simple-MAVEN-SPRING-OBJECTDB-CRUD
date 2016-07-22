@@ -19,6 +19,7 @@ public class UserInfo {
     private String Password;
     private String Response;
     private String ErrorInput;
+    private String Has_Role;
     private Long Id;
 
     /**
@@ -117,6 +118,20 @@ public class UserInfo {
      */
     public void setErrorInput(String ErrorInput) {
         this.ErrorInput = ErrorInput;
+    }
+
+    /**
+     * @return the Has_Role
+     */
+    public String getHas_Role() {
+        return Has_Role;
+    }
+
+    /**
+     * @param Has_Role the Has_Role to set
+     */
+    public void setHas_Role(String Has_Role) {
+        this.Has_Role = Has_Role;
     }
 
 }

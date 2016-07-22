@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="14" failures="0" name="com.simplecrud.UserInfoTest" time="0" errors="0" skipped="0">
+<testsuite tests="14" failures="0" name="com.simplecrud.UserInfoTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -62,18 +62,18 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testGetId" time="0"/>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testSetId" time="0"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testGetUsername" time="0"/>
   <testcase classname="com.simplecrud.UserInfoTest" name="testSetUsername" time="0"/>
   <testcase classname="com.simplecrud.UserInfoTest" name="testGetPassword" time="0"/>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testSetResponse" time="0"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testSetId" time="0.001"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testGetId" time="0"/>
   <testcase classname="com.simplecrud.UserInfoTest" name="testGetEmail" time="0"/>
   <testcase classname="com.simplecrud.UserInfoTest" name="testSetEmail" time="0"/>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testSetDate" time="0"/>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testGetDate" time="0"/>
   <testcase classname="com.simplecrud.UserInfoTest" name="testSetPassword" time="0"/>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testGetResponse" time="0"/>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testGetUsername" time="0"/>
-  <testcase classname="com.simplecrud.UserInfoTest" name="testGetErrorInput" time="0"/>
   <testcase classname="com.simplecrud.UserInfoTest" name="testSetErrorInput" time="0"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testGetErrorInput" time="0"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testGetResponse" time="0"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testSetDate" time="0"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testSetResponse" time="0"/>
+  <testcase classname="com.simplecrud.UserInfoTest" name="testGetDate" time="0"/>
 </testsuite>

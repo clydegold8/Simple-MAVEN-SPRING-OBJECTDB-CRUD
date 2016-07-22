@@ -123,4 +123,27 @@ public class NewMemberTest extends TestCase {
         NewMember newMember = new NewMember(username, password, email);
     }
 
+    /**
+     * Test of SetHas_RoleClass method, of class NewMember.
+     */
+    public void testSetHas_RoleClass() {
+        System.out.println("SetHas_RoleClass");
+        NewMember instance = new NewMember();
+        instance.setHas_role("test");
+        String expResult = "test";
+        String result = instance.getHas_role();
+        assertEquals(expResult, result);
+
+    }
+
+    /**
+     * Test of GetHas_RoleClass method, of class NewMember.
+     */
+    public void testGetHas_RoleClass() {
+        System.out.println("GetHas_RoleClass");
+        String has_role = "test";
+        NewMember instance = new NewMember();
+        instance.setEmail(has_role);
+    }
+
 }

@@ -31,6 +31,7 @@ public class NewMember implements Serializable {
     private String password;
     @Unique
     private String email;
+    private String has_role;
     private Date signingDate;
 
 //    constructors
@@ -48,14 +49,15 @@ public class NewMember implements Serializable {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.has_role = "User";
         this.signingDate = new Date(System.currentTimeMillis());
     }
 
     // String Representation:
-//    @Override
-//    public String toString() {
-//        return username + email + signingDate;
-//    }
+    @Override
+    public String toString() {
+        return username + email + has_role + signingDate;
+    }
 
     /**
      * @return the id
@@ -111,6 +113,20 @@ public class NewMember implements Serializable {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the has_role
+     */
+    public String getHas_role() {
+        return has_role;
+    }
+
+    /**
+     * @param has_role the has_role to set
+     */
+    public void setHas_role(String has_role) {
+        this.has_role = has_role;
     }
 
 }

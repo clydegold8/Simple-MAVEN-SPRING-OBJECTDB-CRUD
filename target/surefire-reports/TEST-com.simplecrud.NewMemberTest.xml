@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="com.simplecrud.NewMemberTest" time="0.016" errors="0" skipped="0">
+<testsuite tests="11" failures="0" name="com.simplecrud.NewMemberTest" time="0.007" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -62,13 +62,15 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.simplecrud.NewMemberTest" name="testGetId" time="0"/>
-  <testcase classname="com.simplecrud.NewMemberTest" name="testSetId" time="0"/>
+  <testcase classname="com.simplecrud.NewMemberTest" name="testGetUsername" time="0.005"/>
   <testcase classname="com.simplecrud.NewMemberTest" name="testSetUsername" time="0"/>
-  <testcase classname="com.simplecrud.NewMemberTest" name="testGetPassword" time="0.016"/>
+  <testcase classname="com.simplecrud.NewMemberTest" name="testGetPassword" time="0.001"/>
+  <testcase classname="com.simplecrud.NewMemberTest" name="testSetId" time="0"/>
+  <testcase classname="com.simplecrud.NewMemberTest" name="testGetId" time="0"/>
   <testcase classname="com.simplecrud.NewMemberTest" name="testGetEmail" time="0"/>
   <testcase classname="com.simplecrud.NewMemberTest" name="testSetEmail" time="0"/>
-  <testcase classname="com.simplecrud.NewMemberTest" name="testSetPassword" time="0"/>
-  <testcase classname="com.simplecrud.NewMemberTest" name="testGetUsername" time="0"/>
+  <testcase classname="com.simplecrud.NewMemberTest" name="testSetPassword" time="0.001"/>
   <testcase classname="com.simplecrud.NewMemberTest" name="testNewMemberClass" time="0"/>
+  <testcase classname="com.simplecrud.NewMemberTest" name="testSetHas_RoleClass" time="0"/>
+  <testcase classname="com.simplecrud.NewMemberTest" name="testGetHas_RoleClass" time="0"/>
 </testsuite>

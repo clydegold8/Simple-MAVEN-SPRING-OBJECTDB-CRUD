@@ -45,6 +45,7 @@
                                         <td><b>Email</b></td>
                                         <td><b>Password</b></td>
                                         <td><b>Signing Date</b></td>
+                                        <td><b>Role</b></td>
                                         <td><b>Options</b></td>
                                     </tr>
                                 </thead>
@@ -75,6 +76,9 @@
                                     </td>
                                     <td>
                                         <c:out value="${UserInfo.getDate()}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${UserInfo.getHas_Role()}"/> 
                                     </td>
                                     <td>
                                         <a href="#" class="btn btn-info edit_btn">Edit</a>

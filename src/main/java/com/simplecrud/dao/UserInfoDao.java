@@ -6,9 +6,6 @@
 package com.simplecrud.dao;
 
 import com.simplecrud.NewMember;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -106,6 +103,18 @@ public class UserInfoDao {
     public Object getUserPasswordbyId(Long Id) {
 
         TypedQuery<NewMember> q = em.createQuery("SELECT n.password FROM NewMember n WHERE n.id = :Id", NewMember.class);
+        q.setParameter("Id", Id);
+        return q.getSingleResult();
+    }
+
+    /**
+     *
+     * @param Id
+     * @return
+     */
+    public Object getUserRolebyId(Long Id) {
+
+        TypedQuery<NewMember> q = em.createQuery("SELECT n.has_role FROM NewMember n WHERE n.id = :Id", NewMember.class);
         q.setParameter("Id", Id);
         return q.getSingleResult();
     }

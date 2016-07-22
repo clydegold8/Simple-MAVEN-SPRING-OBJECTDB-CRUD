@@ -58,7 +58,7 @@ public class RegisteredMemberController {
 
         System.out.println(request + "Load Registered Member Page  " + id);
 
-        Object oUser_email_id, oUser_date_id, oUser_name_id, oUser_password_id;
+        Object oUser_email_id, oUser_date_id, oUser_name_id, oUser_password_id,oUser_role_id;
         FormStatus sFormStatus = new FormStatus();
 
         if ("error".equals(response)) {
@@ -86,7 +86,13 @@ public class RegisteredMemberController {
 
             System.out.println(response + "Return error");
 
-            return new ModelAndView("registeredMember.jsp", "status", sFormStatus);
+            ModelAndView model = new ModelAndView();
+            model.addObject("status", sFormStatus);
+            model.setViewName("registeredMember.jsp");
+
+            return model;
+
+//            return new ModelAndView("registeredMember.jsp", "status", sFormStatus);
         }
 
         //Try to Get User info
@@ -96,12 +102,14 @@ public class RegisteredMemberController {
             oUser_email_id = userDao.getUserEmailbyId(id);
             oUser_date_id = userDao.getUserSigningDatebyId(id);
             oUser_password_id = userDao.getUserPasswordbyId(id);
+            oUser_role_id = userDao.getUserRolebyId(id);
 
             //oUser_email & oUser_date & oUser_name objects convert to string
             String sUser_name_id = oUser_name_id.toString();
             String sUser_email_id = oUser_email_id.toString();
             String sUser_date_id = oUser_date_id.toString();
             String sUser_password_id = oUser_password_id.toString();
+            String sUser_role_id = oUser_role_id.toString();
 
             //Set User Information
             UserInfo user = new UserInfo();
@@ -110,6 +118,7 @@ public class RegisteredMemberController {
             user.setEmail(sUser_email_id);
             user.setDate(sUser_date_id);
             user.setPassword(sUser_password_id);
+            user.setHas_Role(sUser_role_id);
             user.setResponse(response);
             user.setErrorInput(classerror);
 
